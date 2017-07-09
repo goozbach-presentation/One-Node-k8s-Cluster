@@ -1,6 +1,6 @@
 #slideshow -t s5blank -o output derek
 EXTENSION := .md
-THEME := s5blank
+THEME := s6blank
 OUTPUTDIR := output
 
 NAMES := $(patsubst %.md,%,$(wildcard *.md))

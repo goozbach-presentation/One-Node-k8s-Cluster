@@ -1,15 +1,18 @@
----
-author: Derek Carter aka "goozbach"  
-company: Goozbach Infrastructure Solutions  
-title: One Node Kubernetes Cluster  
-subtitle: With Project Atomic on Linode  
-footer: Derek Carter  
-subfooter: http://presentation.goozbach.com/  
-...
+title: One Node Kubernetes Cluster
+author: Derek Carter aka "Goobach" <derek@goozbach.com>
+header: drock header
 
-# Why!?
+# Single Node K8s Cluster
+### Using Project Atomic
+### On Linode
+### By: Derek Carter <derek@goozbach.com>
 
-* Why a one-node cluster?
+#### http://presentation.goozbach.com
 
-# Seriously, Why!?
-* Dude
+# Q: A One-Node Cluster? 
+
+### Kubernetes is an awesome new tech.
+### I like to keep up on new tech.
+### I needed to rebuild my personal server infrastructure.
+### Why not containers?
+

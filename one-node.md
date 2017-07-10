@@ -1,13 +1,9 @@
+author: Derek Carter aka "goozbach" <derek@goozbach.com>
 title: One Node Kubernetes Cluster
-author: Derek Carter aka "Goobach" <derek@goozbach.com>
-header: drock header
-
-# Single Node K8s Cluster
-### Using Project Atomic
-### On Linode
-### By: Derek Carter <derek@goozbach.com>
-
-#### http://presentation.goozbach.com
+subtitle: With Project Atomic on Linode
+footer: Derek Carter
+subfooter: http://presentation.goozbach.com/
+company: Goozbach Infrastructure Solutions LLC
 
 # Q: A One-Node Cluster? 
 

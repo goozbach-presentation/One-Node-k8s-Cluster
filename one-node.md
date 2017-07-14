@@ -14,6 +14,7 @@ company: Goozbach Infrastructure Solutions LLC
 * Why not "The Right Way"?
 
 # Getting started -- Create a Linode
+![choose linode](choose-linode.png)
 
 # Create Bootstrapping OS
 
@@ -23,10 +24,25 @@ company: Goozbach Infrastructure Solutions LLC
 * CentOS 7
 * Set root password
 
+!SLIDE rebuild_bootstrapper
+![rebuild bootstrapper](rebuild-bootstrapper.png)
+
 # Create Aux Disks
 
 * `cidata` volume -- 100M
 * `image` volume -- Rest of space
+
+!SLIDE
+
+![created_default_disks.png](created_default_disks.png)
+
+!SLIDE
+
+![atomic](create-atomic.png)
+
+!SLIDE
+
+![cidata](create_cidata.png)
 
 # Modify Initial Configuration Profile
 
@@ -92,20 +108,52 @@ Cloud init only runs once based on `instance-id`.
 * create other users
   * if needed
 
+!SLIDE
+
+    #cloud-config
+    user: goozbach
+    ssh_pwauth: False
+    ssh_authorized_keys:
+      - '<USERKEY1>'
+      - '<USERKEY2>'
+    ssh_keys:
+      rsa_private: |
+        <INSERT CONTENTS HERE>
+    
+      rsa_public: <PUBKEY GOES HERE>
+    
+      ecdsa_private: |
+        <INSERT CONTENTS HERE>
+    
+      ecdsa_public: <PUBKEY GOES HERE>
+    
+    
+      ed25519_private: |
+        <INSERT CONTENTS HERE>
+    
+      ed25519_public: <PUBKEY GOES HERE>
+
 # Copy cloud-init files into `cidata` partition
 
-TODO image
+* Mount the cidata partition
+
+* Copy `meta-data` and `user-data` files into partiion
+
+* Unmount partition
 
 # Write images into `atomic` disk
 
-TODO image
+![image atomic](image_atomic_disk.png)
 
-# Reboot into `Atomic` Configuration profile.
 
-TODO image
+!SLIDE
+### Reboot into `Atomic` Configuration profile.
 
-# kubectl
+!SLIDE
+### kubectl
 
-# Create a wordpress pod with a database
+!SLIDE
+### Launch pods
 
-# Expose wordpress via a service
+!SLIDE
+### Expose pods

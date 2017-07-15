@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>One Node Kubernetes Cluster</title>
+<!-- metadata -->
+<meta name="generator" content="Slide Show (S9) v3.3.0 on Ruby 2.4.0 (2016-12-24) [x86_64-darwin14]" />
+<meta name="version"   content="S5 1.1" />
+<meta name="author"    content="Derek Carter aka "goozbach" <derek@goozbach.com>" />
+<meta name="company"   content="Goozbach Infrastructure Solutions LLC" />
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis"  content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<!-- S5 JS -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+<!-- mobile viewport optimisation -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- yaml stylesheets -->
+<link href="css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+<link href="css/goozbach.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="yaml/add-ons/accessible-tabs/tabs.css" type="text/css"/>
+<!-- yaml stylesheet hacks -->
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="yaml/core/iehacks.min.css" type="text/css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Derek Carter</h1>
+<h2>http://presentation.goozbach.com/</h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+
+<div class="slide">
+<h1>One Node Kubernetes Cluster</h1>
+<h2>With Project Atomic on Linode</h2>
+<h3>Derek Carter aka "goozbach" <derek@goozbach.com></h3>
+<h4>Goozbach Infrastructure Solutions LLC</h4>
+</div>
+
+<div class="slide">
+<!-- start of contact -->
+    <form class="ym-form">
+      <div id="hcard-Derek-Cullen-Carter" class="vcard">
+        <h3>Contact Derek</h3>
+        <hr />
+        <img style="float:left; margin-right:4px" src="45427c60eda6298b2783dd8367123c89.jpg" alt="photo of Derek" class="photo"/>
+        <a class="url fn n" href="http://goozbach.com">  <span class="given-name">Derek</span>
+        <span class="additional-name">Cullen</span>
+        <span class="family-name">Carter</span>
+        </a>
+        <div class="org">Goozbach Infrastructure Solutions</div>
+       <br />
+       <a class="email ym-button ym-email" href="mailto:derek@goozbach.com">derek@goozbach.com</a>
+       <div class="tel ym-button ym-phone">+1 (762)233-4009</div>
+       <a class="url ym-button" href="https://github.com/goozbach/resume/raw/master/Derek_Carter-Systems_Administrator.pdf">Resum&#x00e9;</a>
+       <br />
+       <a class="url ym-button" href="xmpp:goozbach@gmail.com">Jabber</a>
+       <a class="url ym-button" href="https://github.com/goozbach">GitHub Profile</a>
+       <a class="url ym-button" href="http://presentation.goozbach.com/">Presentations</a>
+       <br />
+       <a class="url ym-button" href="https://twitter.com/goozbach">@goozbach -- twitter</a>
+       <br />
+       <a class="url ym-button" href="irc:irc.freenode.net#utah">IRC irc.freenode.net/#utah</a>
+       <a class="url ym-button" href="irc:irc.freenode.net#ale">IRC irc.freenode.net/#ale</a>
+       <a class="url ym-button" href="irc:irc.freenode.net#utos">IRC irc.freenode.net/#utos</a>
+       <br />
+       <p style="font-size:smaller;">This <a href="http://microformats.org/wiki/hcard">hCard</a> created with the <a href="http://microformats.org/code/hcard/creator">hCard creator</a>.</p>
+      </div>
+    </form>
+<!-- end of contact -->
+</div>
+
+<div class='slide '>
+
+<!-- _S9SLIDE_ -->
+<h1 id="why-a-one-node-cluster">Why a One-Node Cluster?</h1>
+
+<ul>
+  <li>Kubernetes is an awesome new tech.</li>
+  <li>I like to keep up on new tech.</li>
+  <li>I needed to rebuild my personal server infrastructure.</li>
+  <li>Why not containers?</li>
+  <li>Why not “The Right Way”?</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="getting-started--create-a-linode">Getting started – Create a Linode</h1>
+<p><img src="choose-linode.png" alt="choose linode" /></p>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="create-bootstrapping-os">Create Bootstrapping OS</h1>
+
+<p>“Rebuild”</p>
+<ul>
+  <li>3500 M disk</li>
+  <li>512 M Swap</li>
+  <li>CentOS 7</li>
+  <li>Set root password</li>
+</ul>
+
+</div>
+<div class='slide rebuild_bootstrapper'>
+<!-- _S9SLIDE_  rebuild_bootstrapper -->
+
+<p><img src="rebuild-bootstrapper.png" alt="rebuild bootstrapper" /></p>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="create-aux-disks">Create Aux Disks</h1>
+
+<ul>
+  <li><code>cidata</code> volume – 100M</li>
+  <li><code>image</code> volume – Rest of space</li>
+</ul>
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_  -->
+
+<p><img src="created_default_disks.png" alt="created_default_disks.png" /></p>
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_  -->
+
+<p><img src="create-atomic.png" alt="atomic" /></p>
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_  -->
+
+<p><img src="create_cidata.png" alt="cidata" /></p>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="modify-initial-configuration-profile">Modify Initial Configuration Profile</h1>
+
+<ul>
+  <li>Name: bootstrapping</li>
+  <li>Virtual Machine Mode: <code>Full-virtualization</code></li>
+  <li>Disks
+    <ul>
+      <li>centos – sda (leave alone)</li>
+      <li>swap – sdb (leave alone)</li>
+      <li>cidata – sdc (add this one)</li>
+      <li>atomic – add (add this one)</li>
+    </ul>
+  </li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="create-atomic-configuration-profile">Create <code>Atomic</code> Configuration Profile</h1>
+
+<ul>
+  <li>Name: Atomic</li>
+  <li>Virtual Machine Mode: <code>Full-virtualization</code></li>
+  <li>Disks
+    <ul>
+      <li>Atomic – sda</li>
+      <li>Swap – sdb</li>
+      <li>cidata – sdc</li>
+    </ul>
+  </li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="boot-into-bootstrapping-profile">Boot Into <code>Bootstrapping</code> Profile</h1>
+
+<ul>
+  <li>Wait for system to boot, ssh into it.</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="setup-bootstrapping-environment">Setup Bootstrapping Environment</h1>
+
+<ul>
+  <li>install needed packages
+    <ul>
+      <li>dosfstools – needed for mkfs.vfat</li>
+      <li>wget</li>
+    </ul>
+  </li>
+  <li>Download Fedora Atomic qcow2 image
+    <ul>
+      <li>https://getfedora.org/atomic/download/</li>
+    </ul>
+  </li>
+  <li>Create filesystem on <code>cidata</code> volume</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="optional-ipv6-issues">OPTIONAL: ipv6 issues</h1>
+
+<p>put this in <code>/etc/sysctl.d/99-noipv6.conf</code></p>
+
+<pre><code>net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="create-cloud-init-data-files">Create cloud-init data files</h1>
+
+<ul>
+  <li><code>meta-data</code> – Machine identification</li>
+  <li><code>user-data</code> – Cloud-init configuration</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="meta-data"><code>meta-data</code></h1>
+
+<p>Contents:</p>
+
+<pre><code>instance-id: atomic-F329-458F-AB4E-147410BC283F
+local-hostname: atomic.example.com
+</code></pre>
+
+<p>The field <code>instance-id</code> is a unique identifer for the machine.
+Cloud init only runs once based on <code>instance-id</code>.</p>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="user-data"><code>user-data</code></h1>
+<ul>
+  <li>copy ssh host keys into <code>user-data</code>
+    <ul>
+      <li>allows for both “configuration profiles” to have the same ssh host key</li>
+    </ul>
+  </li>
+  <li>copy user ssh key
+    <ul>
+      <li>allows for passwordless logins</li>
+    </ul>
+  </li>
+  <li>create other users
+    <ul>
+      <li>if needed</li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_  -->
+
+<pre><code>#cloud-config
+user: goozbach
+ssh_pwauth: False
+ssh_authorized_keys:
+  - '&lt;USERKEY1&gt;'
+  - '&lt;USERKEY2&gt;'
+ssh_keys:
+  rsa_private: |
+    &lt;INSERT CONTENTS HERE&gt;
+
+  rsa_public: &lt;PUBKEY GOES HERE&gt;
+
+  ecdsa_private: |
+    &lt;INSERT CONTENTS HERE&gt;
+
+  ecdsa_public: &lt;PUBKEY GOES HERE&gt;
+
+
+  ed25519_private: |
+    &lt;INSERT CONTENTS HERE&gt;
+
+  ed25519_public: &lt;PUBKEY GOES HERE&gt;
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="copy-cloud-init-files-into-cidata-partition">Copy cloud-init files into <code>cidata</code> partition</h1>
+
+<ul>
+  <li>
+    <p>Mount the cidata partition</p>
+  </li>
+  <li>
+    <p>Copy <code>meta-data</code> and <code>user-data</code> files into partiion</p>
+  </li>
+  <li>
+    <p>Unmount partition</p>
+  </li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="write-images-into-atomic-disk">Write images into <code>atomic</code> disk</h1>
+
+<p><img src="image_atomic_disk.png" alt="image atomic" /></p>
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_  -->
+
+<h3 id="reboot-into-atomic-configuration-profile">Reboot into <code>Atomic</code> Configuration profile.</h3>
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_  -->
+
+<h3 id="kubectl">kubectl</h3>
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_  -->
+
+<h3 id="launch-pods">Launch pods</h3>
+
+
+</div>
+<div class='slide '>
+<!-- _S9SLIDE_ -->
+<h1 id="expose-pods">Expose pods</h1>
+</div>
+
+
+<div class="slide">
+  <h2>Thank You!</h2>
+    <div class="ym-info">
+            More information can be found at:
+            <br />
+            <a class="ym-button ym-next" href="http://presentation.goozbach.com/">http://presentation.goozbach.com/</a>
+            <br />
+            <br />
+            Contact Derek at:
+            <br />
+            <a class="ym-button ym-email" href="http://goozbach.com/contact/">http://goozbach.com/contact/</a>
+    </div>
+</div>
+</div> <!-- presentation -->
+
+</body>
+</html>
